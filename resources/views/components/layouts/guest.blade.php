@@ -14,13 +14,8 @@
 
     <div class="w-full max-w-md">
         {{-- Logo --}}
-        <a href="/" class="flex items-center justify-center gap-2 mb-8">
-            <span class="w-8 h-8 bg-stone-900 rounded-md flex items-center justify-center">
-                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                </svg>
-            </span>
-            <span class="text-lg font-semibold tracking-tight">SwissBook</span>
+        <a href="/" class="flex items-center justify-center mb-8">
+            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-10 w-auto">
         </a>
 
         {{ $slot }}

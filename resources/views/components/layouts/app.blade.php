@@ -20,12 +20,7 @@
     <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <a href="/" class="flex items-center gap-2">
-                <span class="w-7 h-7 bg-stone-900 rounded-sm flex items-center justify-center">
-                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                    </svg>
-                </span>
-                <span class="font-semibold tracking-tight text-stone-900">SwissBook</span>
+                <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-8 w-auto">
             </a>
             <div class="flex items-center gap-3">
                 @auth

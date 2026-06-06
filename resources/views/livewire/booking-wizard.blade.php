@@ -14,7 +14,7 @@
             <div class="flex flex-col items-center gap-1 flex-shrink-0">
                 <div @class([
                     'w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold border-2 transition-all',
-                    'bg-stone-900 border-stone-900 text-white' => $step === $num,
+                    'bg-brand-gold border-brand-gold text-white' => $step === $num,
                     'bg-green-500 border-green-500 text-white' => $step > $num,
                     'bg-white border-stone-200 text-stone-400' => $step < $num,
                 ])>
@@ -28,7 +28,7 @@
                 </div>
                 <span @class([
                     'text-[10px] font-semibold uppercase tracking-wider hidden sm:block',
-                    'text-stone-900' => $step === $num,
+                    'text-brand-gold' => $step === $num,
                     'text-green-600' => $step > $num,
                     'text-stone-300' => $step < $num,
                 ])>{{ $label }}</span>
@@ -68,9 +68,9 @@
                 wire:click="selectService('{{ $svc->name }}')"
                 wire:key="svc-{{ $svc->id }}"
                 wire:loading.class="opacity-50 cursor-wait"
-                class="group text-left bg-white border-2 rounded-2xl p-6 transition-all duration-150 hover:border-stone-400 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-stone-900 focus:ring-offset-2 {{ $selectedService === $svc->name ? 'border-stone-900 shadow-md' : 'border-stone-200' }}"
+                class="group text-left bg-white border-2 rounded-2xl p-6 transition-all duration-150 hover:border-stone-400 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-brand-gold focus:ring-offset-2 {{ $selectedService === $svc->name ? 'border-brand-gold shadow-md' : 'border-stone-200' }}"
             >
-                <div class="w-10 h-10 {{ $selectedService === $svc->name ? 'bg-stone-900' : 'bg-stone-100 group-hover:bg-stone-900' }} rounded-xl flex items-center justify-center mb-4 transition-colors">
+                <div class="w-10 h-10 {{ $selectedService === $svc->name ? 'bg-brand-gold' : 'bg-stone-100 group-hover:bg-brand-gold' }} rounded-xl flex items-center justify-center mb-4 transition-colors">
                     <svg class="w-5 h-5 {{ $selectedService === $svc->name ? 'text-white' : 'text-stone-600 group-hover:text-white' }} transition-colors"
                          fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
@@ -146,8 +146,8 @@
                             wire:click="selectDate('{{ $day['value'] }}')"
                             wire:key="day-{{ $day['value'] }}"
                             @class([
-                                'flex flex-col items-center gap-0.5 py-2 rounded-xl border text-center transition-all duration-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-stone-900 focus:ring-offset-1 w-full',
-                                'border-stone-900 bg-stone-900 text-white shadow-md' => $selectedDate === $day['value'],
+                                'flex flex-col items-center gap-0.5 py-2 rounded-xl border text-center transition-all duration-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-gold focus:ring-offset-1 w-full',
+                                'border-brand-gold bg-brand-gold text-white shadow-md' => $selectedDate === $day['value'],
                                 'border-stone-200 text-stone-700 hover:border-stone-400 hover:bg-stone-50' => $selectedDate !== $day['value'] && !$day['weekend'],
                                 'border-stone-100 text-stone-400 hover:border-stone-200' => $selectedDate !== $day['value'] && $day['weekend'],
                             ])
@@ -181,7 +181,7 @@
                     type="button"
                     wire:click="goToStep(3)"
                     {{ $selectedDate ? '' : 'disabled' }}
-                    class="inline-flex items-center gap-2 bg-stone-900 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-stone-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                    class="inline-flex items-center gap-2 bg-brand-gold text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-brand-gold-dark disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                 >
                     Continue
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -213,9 +213,9 @@
                         wire:click="selectTime('{{ $slot }}')"
                         wire:key="slot-{{ $slot }}"
                         @class([
-                            'py-3 rounded-xl border text-sm font-semibold transition-all duration-100 focus:outline-none focus:ring-2 focus:ring-stone-900 focus:ring-offset-1',
-                            'border-stone-900 bg-stone-900 text-white shadow-md' => $selectedTime === $slot,
-                            'border-stone-200 text-stone-700 hover:border-stone-900 hover:bg-stone-50' => $selectedTime !== $slot,
+                            'py-3 rounded-xl border text-sm font-semibold transition-all duration-100 focus:outline-none focus:ring-2 focus:ring-brand-gold focus:ring-offset-1',
+                            'border-brand-gold bg-brand-gold text-white shadow-md' => $selectedTime === $slot,
+                            'border-stone-200 text-stone-700 hover:border-brand-gold hover:bg-stone-50' => $selectedTime !== $slot,
                         ])
                     >{{ $slot }}</button>
                     @endforeach
@@ -228,7 +228,7 @@
                     <p class="text-sm font-semibold text-stone-500">Fully booked</p>
                     <p class="text-xs text-stone-400 mt-1">No slots left for this date.</p>
                     <button type="button" wire:click="goToStep(2)"
-                            class="mt-4 text-sm font-semibold text-stone-900 underline underline-offset-2">
+                            class="mt-4 text-sm font-semibold text-brand-gold underline underline-offset-2">
                         Choose another date
                     </button>
                 </div>
@@ -251,7 +251,7 @@
                     type="button"
                     wire:click="goToStep(4)"
                     {{ $selectedTime ? '' : 'disabled' }}
-                    class="inline-flex items-center gap-2 bg-stone-900 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-stone-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                    class="inline-flex items-center gap-2 bg-brand-gold text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-brand-gold-dark disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                 >
                     Continue
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -296,21 +296,21 @@
                     <div>
                         <label class="block text-xs font-bold text-stone-600 mb-1.5 uppercase tracking-wider">Full Name</label>
                         <input type="text" wire:model="customer_name" placeholder="Marie Dupont" autocomplete="name"
-                               class="w-full border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 transition placeholder-stone-300">
+                               class="w-full border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold transition placeholder-stone-300">
                         @error('customer_name') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
                     </div>
 
                     <div>
                         <label class="block text-xs font-bold text-stone-600 mb-1.5 uppercase tracking-wider">Email Address</label>
                         <input type="email" wire:model="customer_email" placeholder="marie@example.com" autocomplete="email"
-                               class="w-full border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 transition placeholder-stone-300">
+                               class="w-full border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold transition placeholder-stone-300">
                         @error('customer_email') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
                     </div>
 
                     <div>
                         <label class="block text-xs font-bold text-stone-600 mb-1.5 uppercase tracking-wider">Phone Number</label>
                         <input type="tel" wire:model="customer_telephone" placeholder="+41 79 123 45 67" autocomplete="tel"
-                               class="w-full border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 transition placeholder-stone-300">
+                               class="w-full border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold transition placeholder-stone-300">
                         @error('customer_telephone') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
                     </div>
 
@@ -320,7 +320,7 @@
                         </label>
                         <textarea wire:model="customer_notes" rows="3"
                                   placeholder="Anything helpful to know before your appointment…"
-                                  class="w-full border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 transition placeholder-stone-300 resize-none"></textarea>
+                                  class="w-full border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold transition placeholder-stone-300 resize-none"></textarea>
                         @error('customer_notes') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
                     </div>
 
@@ -348,7 +348,7 @@
                     wire:click="submitBooking"
                     wire:loading.attr="disabled"
                     wire:loading.class="opacity-60 cursor-wait"
-                    class="inline-flex items-center gap-2 bg-stone-900 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-stone-700 transition-all"
+                    class="inline-flex items-center gap-2 bg-brand-gold text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-brand-gold-dark transition-all"
                 >
                     <span wire:loading.remove wire:target="submitBooking">Confirm Booking</span>
                     <span wire:loading wire:target="submitBooking" class="flex items-center gap-2">
@@ -419,7 +419,7 @@
                         Book another
                     </a>
                     <a href="{{ route('home') }}"
-                       class="inline-flex items-center justify-center gap-2 bg-stone-900 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-stone-700 transition-all">
+                       class="inline-flex items-center justify-center gap-2 bg-brand-gold text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-brand-gold-dark transition-all">
                         Back to home
                     </a>
                 </div>

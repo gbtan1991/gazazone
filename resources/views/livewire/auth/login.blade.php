@@ -23,7 +23,7 @@
                 wire:model="email"
                 autocomplete="email"
                 autofocus
-                class="w-full border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 focus:border-transparent transition placeholder-stone-300"
+                class="w-full border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent transition placeholder-stone-300"
                 placeholder="you@example.com"
             >
             @error('email') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
@@ -37,7 +37,7 @@
                 type="password"
                 wire:model="password"
                 autocomplete="current-password"
-                class="w-full border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 focus:border-transparent transition placeholder-stone-300"
+                class="w-full border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent transition placeholder-stone-300"
                 placeholder="••••••••"
             >
             @error('password') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
@@ -45,7 +45,7 @@
 
         <label class="flex items-center gap-2.5 cursor-pointer select-none">
             <input type="checkbox" wire:model="remember"
-                   class="w-4 h-4 rounded border-stone-300 text-stone-900 focus:ring-stone-900">
+                   class="w-4 h-4 rounded border-stone-300 text-brand-gold focus:ring-brand-gold">
             <span class="text-sm text-stone-600">Remember me</span>
         </label>
 
@@ -53,7 +53,7 @@
             type="submit"
             wire:loading.attr="disabled"
             wire:loading.class="opacity-60 cursor-wait"
-            class="w-full bg-stone-900 text-white py-3 rounded-full text-sm font-semibold hover:bg-stone-700 transition-all"
+            class="w-full bg-brand-gold text-white py-3 rounded-full text-sm font-semibold hover:bg-brand-gold-dark transition-all"
         >
             <span wire:loading.remove wire:target="login">Sign in</span>
             <span wire:loading wire:target="login" class="flex items-center justify-center gap-2">

@@ -16,7 +16,7 @@
     {{-- Sidebar --}}
     <aside class="hidden md:flex flex-col w-64 bg-stone-900 text-white shrink-0">
         <div class="h-16 flex items-center px-6 border-b border-stone-700">
-            <span class="font-semibold tracking-tight">SwissBook Admin</span>
+            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-8 w-auto brightness-0 invert">
         </div>
         <nav class="flex-1 px-4 py-6 space-y-1">
             @php $path = request()->path(); @endphp
@@ -50,7 +50,7 @@
     <div class="flex-1 flex flex-col min-w-0">
         {{-- Admin top bar --}}
         <header class="h-16 bg-white border-b border-stone-200 flex items-center px-4 sm:px-6 gap-4 shrink-0">
-            <span class="md:hidden font-semibold text-stone-900">SwissBook Admin</span>
+            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="md:hidden h-8 w-auto">
             <div class="ml-auto flex items-center gap-4">
                 <span class="text-sm text-stone-500 hidden sm:block">{{ auth()->user()?->name }}</span>
                 <form method="POST" action="{{ route('logout') }}">
