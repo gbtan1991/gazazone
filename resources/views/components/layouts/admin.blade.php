@@ -16,7 +16,7 @@
     {{-- Sidebar --}}
     <aside class="hidden md:flex flex-col w-64 bg-stone-900 text-white shrink-0">
         <div class="py-4 flex items-center px-6 border-b border-stone-700">
-            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-16 w-auto brightness-0 invert">
+            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-16 w-auto">
         </div>
         <nav class="flex-1 px-4 py-6 space-y-1">
             @php $path = request()->path(); @endphp
@@ -25,25 +25,25 @@
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                 </svg>
-                Dashboard
+                Übersicht
             </a>
             <a href="/admin/services"
                class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors {{ str_starts_with($path, 'admin/services') ? 'bg-stone-800 text-white' : 'text-stone-400 hover:bg-stone-800 hover:text-white' }}">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
                 </svg>
-                Services
+                Leistungen
             </a>
             <a href="/admin/users"
                class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors {{ str_starts_with($path, 'admin/users') ? 'bg-stone-800 text-white' : 'text-stone-400 hover:bg-stone-800 hover:text-white' }}">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
                 </svg>
-                Users
+                Benutzer
             </a>
         </nav>
         <div class="px-4 py-4 border-t border-stone-700">
-            <a href="/" class="text-xs text-stone-400 hover:text-stone-200 transition-colors">← Public site</a>
+            <a href="/" class="text-xs text-stone-400 hover:text-stone-200 transition-colors">← Öffentliche Seite</a>
         </div>
     </aside>
 
@@ -56,7 +56,7 @@
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit" class="text-sm font-semibold text-stone-400 hover:text-stone-700 transition-colors">
-                        Log out
+                        Abmelden
                     </button>
                 </form>
             </div>

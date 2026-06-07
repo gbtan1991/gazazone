@@ -1,8 +1,8 @@
 <div class="bg-white rounded-2xl border border-stone-200 shadow-sm p-8">
 
     <div class="mb-8">
-        <h1 class="text-2xl font-bold text-stone-900">Welcome back</h1>
-        <p class="text-sm text-stone-500 mt-1">Sign in to manage your bookings.</p>
+        <h1 class="text-2xl font-bold text-stone-900">Willkommen zurück</h1>
+        <p class="text-sm text-stone-500 mt-1">Melden Sie sich an, um Ihre Buchungen zu verwalten.</p>
     </div>
 
     @if (session('error'))
@@ -17,21 +17,21 @@
     <form wire:submit="login" class="space-y-5">
 
         <div>
-            <label class="block text-xs font-semibold text-stone-600 mb-1.5 uppercase tracking-wide">Email</label>
+            <label class="block text-xs font-semibold text-stone-600 mb-1.5 uppercase tracking-wide">E-Mail</label>
             <input
                 type="email"
                 wire:model="email"
                 autocomplete="email"
                 autofocus
                 class="w-full border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent transition placeholder-stone-300"
-                placeholder="you@example.com"
+                placeholder="sie@beispiel.ch"
             >
             @error('email') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
         </div>
 
         <div>
             <div class="flex items-center justify-between mb-1.5">
-                <label class="text-xs font-semibold text-stone-600 uppercase tracking-wide">Password</label>
+                <label class="text-xs font-semibold text-stone-600 uppercase tracking-wide">Passwort</label>
             </div>
             <input
                 type="password"
@@ -46,7 +46,7 @@
         <label class="flex items-center gap-2.5 cursor-pointer select-none">
             <input type="checkbox" wire:model="remember"
                    class="w-4 h-4 rounded border-stone-300 text-brand-gold focus:ring-brand-gold">
-            <span class="text-sm text-stone-600">Remember me</span>
+            <span class="text-sm text-stone-600">Angemeldet bleiben</span>
         </label>
 
         <button
@@ -55,17 +55,16 @@
             wire:loading.class="opacity-60 cursor-wait"
             class="w-full bg-brand-gold text-white py-3 rounded-full text-sm font-semibold hover:bg-brand-gold-dark transition-all"
         >
-            <span wire:loading.remove wire:target="login">Sign in</span>
+            <span wire:loading.remove wire:target="login">Anmelden</span>
             <span wire:loading wire:target="login" class="flex items-center justify-center gap-2">
                 <svg class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
                 </svg>
-                Signing in…
+                Wird angemeldet…
             </span>
         </button>
 
     </form>
-
 
 </div>
