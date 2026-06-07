@@ -1,4 +1,4 @@
-<x-layouts.app title="Book an Appointment">
+<x-layouts.app title="Termin buchen">
 
     <div class="min-h-[calc(100vh-4rem)] bg-stone-50">
 
@@ -12,9 +12,9 @@
                     </svg>
                     Gazazone
                 </a>
-                <h1 class="text-3xl font-bold text-stone-900">Book an appointment</h1>
+                <h1 class="text-3xl font-bold text-stone-900">Termin buchen</h1>
                 <p class="text-stone-500 text-sm mt-1.5">
-                    Real-time availability — select your service, date, and time in under a minute.
+                    Echtzeit-Verfügbarkeit — Leistung, Datum und Uhrzeit in unter einer Minute auswählen.
                 </p>
             </div>
         </div>

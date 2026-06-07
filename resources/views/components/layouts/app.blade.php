@@ -26,19 +26,19 @@
                 @auth
                     <a href="{{ route('admin.dashboard') }}"
                        class="text-sm font-medium text-stone-500 hover:text-stone-900 transition-colors">
-                        Admin panel
+                        Adminbereich
                     </a>
                     <form method="POST" action="{{ route('logout') }}" class="inline">
                         @csrf
                         <button type="submit"
                                 class="text-sm font-semibold border border-stone-200 text-stone-600 hover:bg-stone-50 px-4 py-2 rounded-full transition-colors">
-                            Sign out
+                            Abmelden
                         </button>
                     </form>
                 @else
                     <a href="{{ route('login') }}"
                        class="text-sm font-semibold border border-stone-200 text-stone-600 hover:bg-stone-50 px-4 py-2 rounded-full transition-colors">
-                        Admin sign in
+                        Admin-Anmeldung
                     </a>
                 @endauth
             </div>
@@ -54,9 +54,9 @@
             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
                 <div>
                     <p class="font-semibold text-stone-900">Gazazone</p>
-                    <p class="text-sm text-stone-500 mt-1">Precision scheduling for discerning businesses.</p>
+                    <p class="text-sm text-stone-500 mt-1">Präzise Terminplanung für anspruchsvolle Betriebe.</p>
                 </div>
-                <p class="text-xs text-stone-400">© {{ date('Y') }} Gazazone. All rights reserved.</p>
+                <p class="text-xs text-stone-400">© {{ date('Y') }} Gazazone. Alle Rechte vorbehalten.</p>
             </div>
         </div>
     </footer>

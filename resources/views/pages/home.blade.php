@@ -1,29 +1,29 @@
-<x-layouts.app title="Premium Business Booking">
+<x-layouts.app title="Terminbuchung">
 
     {{-- ══════════════ HERO ══════════════ --}}
     <section class="relative bg-white overflow-hidden">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36">
             <div class="max-w-2xl">
-                <p class="text-xs font-bold tracking-[0.2em] uppercase text-stone-400 mb-5">Precision · Reliability · Excellence</p>
+                <p class="text-xs font-bold tracking-[0.2em] uppercase text-stone-400 mb-5">Präzision · Zuverlässigkeit · Qualität</p>
                 <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.06] tracking-tight text-stone-900">
-                    Your time,<br>
-                    <span class="text-stone-300">perfectly</span><br>
-                    scheduled.
+                    Ihr Termin,<br>
+                    <span class="text-stone-300">perfekt</span><br>
+                    geplant.
                 </h1>
                 <p class="mt-6 text-lg text-stone-500 max-w-lg leading-relaxed">
-                    Book a premium consultation in seconds. Swiss precision meets modern convenience — no phone calls, no waiting.
+                    Termin in Sekunden buchen. Schweizer Präzision trifft moderne Bequemlichkeit — kein Telefonieren, kein Warten.
                 </p>
                 <div class="mt-10 flex flex-wrap gap-3">
                     <a href="{{ route('book') }}"
                        class="inline-flex items-center gap-2 bg-stone-900 text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:bg-stone-700 transition-colors shadow-sm">
-                        Book an appointment
+                        Termin buchen
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
                     </a>
                     <a href="#how-it-works"
                        class="inline-flex items-center gap-2 text-stone-600 px-7 py-3.5 text-sm font-semibold hover:text-stone-900 transition-colors border border-stone-200 rounded-full hover:border-stone-400">
-                        How it works
+                        So funktioniert's
                     </a>
                 </div>
             </div>
@@ -38,14 +38,14 @@
     {{-- ══════════════ HOW IT WORKS ══════════════ --}}
     <section id="how-it-works" class="bg-stone-50 py-24">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p class="text-xs font-bold tracking-[0.2em] uppercase text-stone-400 mb-3">Process</p>
-            <h2 class="text-3xl font-bold text-stone-900 mb-14">Four steps. Done.</h2>
+            <p class="text-xs font-bold tracking-[0.2em] uppercase text-stone-400 mb-3">Ablauf</p>
+            <h2 class="text-3xl font-bold text-stone-900 mb-14">Vier Schritte. Fertig.</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 @foreach ([
-                    ['01', 'Pick a service',  'Choose from our curated list of consulting services.'],
-                    ['02', 'Choose a date',   'Browse 30 available weekdays on a clean calendar.'],
-                    ['03', 'Select a time',   'Real-time slots. Locked the moment you confirm.'],
-                    ['04', 'Confirm & done',  'Enter your details and receive instant confirmation.'],
+                    ['01', 'Leistung wählen',   'Wählen Sie aus unserem Angebot an Handwerks- und Zimmereileistungen.'],
+                    ['02', 'Datum auswählen',   '30 verfügbare Werktage übersichtlich im Kalender.'],
+                    ['03', 'Uhrzeit wählen',    'Echtzeit-Verfügbarkeit. Reserviert sobald Sie bestätigen.'],
+                    ['04', 'Bestätigen & fertig','Daten eingeben und sofortige Bestätigung erhalten.'],
                 ] as [$num, $title, $desc])
                 <div class="flex gap-4">
                     <span class="text-2xl font-black text-stone-200 shrink-0 leading-tight pt-0.5">{{ $num }}</span>
@@ -64,12 +64,12 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
                 <div>
-                    <p class="text-xs font-bold tracking-[0.2em] uppercase text-stone-400 mb-3">Services</p>
-                    <h2 class="text-3xl font-bold text-stone-900">What we offer</h2>
+                    <p class="text-xs font-bold tracking-[0.2em] uppercase text-stone-400 mb-3">Leistungen</p>
+                    <h2 class="text-3xl font-bold text-stone-900">Was wir anbieten</h2>
                 </div>
                 <a href="{{ route('book') }}"
                    class="shrink-0 inline-flex items-center gap-2 text-sm font-semibold text-stone-900 border-b-2 border-stone-900 pb-0.5 hover:text-stone-600 hover:border-stone-600 transition-colors">
-                    Book now
+                    Jetzt buchen
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                     </svg>
@@ -99,7 +99,7 @@
                         </span>
                         <a href="{{ route('book') }}?service={{ urlencode($svc['name']) }}"
                            class="text-xs font-bold text-stone-900 hover:text-stone-600 transition-colors underline underline-offset-2">
-                            Book this →
+                            Buchen →
                         </a>
                     </div>
                 </div>
@@ -111,13 +111,13 @@
     {{-- ══════════════ CTA BANNER ══════════════ --}}
     <section class="bg-stone-900 py-20">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Ready to get started?</h2>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Bereit loszulegen?</h2>
             <p class="text-stone-400 mb-8 text-base">
-                Booking takes less than two minutes. Slots fill fast.
+                Die Buchung dauert weniger als zwei Minuten. Termine sind schnell vergeben.
             </p>
             <a href="{{ route('book') }}"
                class="inline-flex items-center gap-2 bg-white text-stone-900 px-8 py-4 rounded-full text-sm font-bold hover:bg-stone-100 transition-colors shadow-sm">
-                Reserve your slot
+                Termin reservieren
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                 </svg>
