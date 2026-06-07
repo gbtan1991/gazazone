@@ -45,7 +45,7 @@
         </div>
     </header>
 
-    <main class="pt-20">
+    <main class="pt-28">
         {{ $slot }}
     </main>
 
@@ -53,10 +53,10 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
                 <div>
-                    <p class="font-semibold text-stone-900">SwissBook</p>
+                    <p class="font-semibold text-stone-900">Gazazone</p>
                     <p class="text-sm text-stone-500 mt-1">Precision scheduling for discerning businesses.</p>
                 </div>
-                <p class="text-xs text-stone-400">© {{ date('Y') }} SwissBook. All rights reserved.</p>
+                <p class="text-xs text-stone-400">© {{ date('Y') }} Gazazone. All rights reserved.</p>
             </div>
         </div>
     </footer>

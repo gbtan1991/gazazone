@@ -10,7 +10,7 @@
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
                     </svg>
-                    SwissBook
+                    Gazazone
                 </a>
                 <h1 class="text-3xl font-bold text-stone-900">Book an appointment</h1>
                 <p class="text-stone-500 text-sm mt-1.5">
