@@ -18,9 +18,9 @@
 
     {{-- Navigation --}}
     <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="/" class="flex items-center gap-2">
-                <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-8 w-auto">
+                <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-16 w-auto">
             </a>
             <div class="flex items-center gap-3">
                 @auth
@@ -45,7 +45,7 @@
         </div>
     </header>
 
-    <main class="pt-16">
+    <main class="pt-20">
         {{ $slot }}
     </main>
 

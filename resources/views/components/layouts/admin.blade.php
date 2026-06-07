@@ -15,8 +15,8 @@
 <div class="flex h-full min-h-screen">
     {{-- Sidebar --}}
     <aside class="hidden md:flex flex-col w-64 bg-stone-900 text-white shrink-0">
-        <div class="h-16 flex items-center px-6 border-b border-stone-700">
-            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-8 w-auto brightness-0 invert">
+        <div class="py-4 flex items-center px-6 border-b border-stone-700">
+            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-16 w-auto brightness-0 invert">
         </div>
         <nav class="flex-1 px-4 py-6 space-y-1">
             @php $path = request()->path(); @endphp

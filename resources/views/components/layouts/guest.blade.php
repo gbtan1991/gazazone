@@ -15,7 +15,7 @@
     <div class="w-full max-w-md">
         {{-- Logo --}}
         <a href="/" class="flex items-center justify-center mb-8">
-            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-10 w-auto">
+            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-20 w-auto">
         </a>
 
         {{ $slot }}
