@@ -2,59 +2,47 @@
 
 namespace App\Models;
 
+use App\Enums\BookingStatus;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Booking extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasUuids, SoftDeletes;
 
     protected $fillable = [
-        'user_id',
-        'name',
-        'email',
-        'phone',
-        'booking_date',
-        'time_slot',
-        'service',
-        'notes',
+        'customer_id',
+        'service_id',
+        'assigned_to',
+        'booked_at',
+        'duration_minutes',
         'status',
+        'notes',
     ];
 
-    protected $casts = [
-        'booking_date' => 'date',
-    ];
-
-    // Convenience scopes for admin filtering
-    public function scopePending($query)
+    protected function casts(): array
     {
-        return $query->where('status', 'pending');
+        return [
+            'booked_at'        => 'datetime',
+            'duration_minutes' => 'integer',
+            'status'           => BookingStatus::class,
+        ];
     }
 
-    public function scopeApproved($query)
+    public function customer(): BelongsTo
     {
-        return $query->where('status', 'approved');
+        return $this->belongsTo(Customer::class);
     }
 
-    public function scopeForDate($query, string $date)
+    public function service(): BelongsTo
     {
-        return $query->where('booking_date', $date);
+        return $this->belongsTo(Service::class);
     }
 
-    public function user(): BelongsTo
+    public function assignedTo(): BelongsTo
     {
-        return $this->belongsTo(User::class);
-    }
-
-    // Returns booked (non-cancelled) slot strings for a given date
-    public static function bookedSlotsForDate(string $date): array
-    {
-        return self::where('booking_date', $date)
-            ->whereIn('status', ['pending', 'approved'])
-            ->pluck('time_slot')
-            ->toArray();
+        return $this->belongsTo(User::class, 'assigned_to');
     }
 }
-
