@@ -2,47 +2,59 @@
 
 namespace App\Models;
 
-use App\Enums\BookingStatus;
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Booking extends Model
 {
-    use HasUuids, SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'customer_id',
-        'service_id',
-        'assigned_to',
-        'booked_at',
-        'duration_minutes',
-        'status',
+        'user_id',
+        'name',
+        'email',
+        'phone',
+        'booking_date',
+        'time_slot',
+        'service',
         'notes',
+        'status',
     ];
 
-    protected function casts(): array
+    protected $casts = [
+        'booking_date' => 'date',
+    ];
+
+    // Convenience scopes for admin filtering
+    public function scopePending($query)
     {
-        return [
-            'booked_at'        => 'datetime',
-            'duration_minutes' => 'integer',
-            'status'           => BookingStatus::class,
-        ];
+        return $query->where('status', 'pending');
     }
 
-    public function customer(): BelongsTo
+    public function scopeApproved($query)
     {
-        return $this->belongsTo(Customer::class);
+        return $query->where('status', 'approved');
     }
 
-    public function service(): BelongsTo
+    public function scopeForDate($query, string $date)
     {
-        return $this->belongsTo(Service::class);
+        return $query->where('booking_date', $date);
     }
 
-    public function assignedTo(): BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'assigned_to');
+        return $this->belongsTo(User::class);
+    }
+
+    // Returns booked (non-cancelled) slot strings for a given date
+    public static function bookedSlotsForDate(string $date): array
+    {
+        return self::where('booking_date', $date)
+            ->whereIn('status', ['pending', 'approved'])
+            ->pluck('time_slot')
+            ->toArray();
     }
 }
+

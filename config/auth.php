@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Platform\ClientUser;
+use App\Models\User;
 
 return [
 
@@ -64,8 +64,13 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => ClientUser::class,
+            'model' => env('AUTH_MODEL', User::class),
         ],
+
+        // 'users' => [
+        //     'driver' => 'database',
+        //     'table' => 'users',
+        // ],
     ],
 
     /*

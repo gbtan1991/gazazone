@@ -3,36 +3,47 @@
 namespace App\Livewire\Auth;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Layout;
-use Livewire\Attributes\Rule;
 use Livewire\Component;
 
 #[Layout('components.layouts.guest')]
 class Login extends Component
 {
-    #[Rule('required|email')]
-    public string $email = '';
-
-    #[Rule('required|min:8')]
+    public string $email    = '';
     public string $password = '';
-
-    public bool $remember = false;
+    public bool   $remember = false;
 
     public function login(): void
     {
-        $this->validate();
+        $this->validate([
+            'email'    => ['required', 'email'],
+            'password' => ['required', 'string'],
+        ]);
 
-        if (! Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
-            $this->addError('email', 'Diese Zugangsdaten sind ungültig.');
-            return;
+        $throttleKey = Str::transliterate(Str::lower($this->email) . '|' . request()->ip());
+
+        if (RateLimiter::tooManyAttempts($throttleKey, 5)) {
+            $seconds = RateLimiter::availableIn($throttleKey);
+            throw ValidationException::withMessages([
+                'email' => "Too many login attempts. Please try again in {$seconds} seconds.",
+            ]);
         }
 
-        $clientUser = Auth::user();
-        $clientId   = $clientUser->client_id;
+        if (! Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
+            RateLimiter::hit($throttleKey, 300);
 
+            throw ValidationException::withMessages([
+                'email' => 'These credentials do not match our records.',
+            ]);
+        }
+
+        RateLimiter::clear($throttleKey);
         session()->regenerate();
 
-        $this->redirect(route('tenant.dashboard', ['tenant' => $clientId]), navigate: true);
+        $this->redirect(route('admin.dashboard'), navigate: true);
     }
 
     public function render()

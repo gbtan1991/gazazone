@@ -2,32 +2,21 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Service extends Model
 {
-    use HasUuids;
+    use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'duration_minutes',
-        'price_chf',
-        'is_active',
+    protected $fillable = ['name', 'description', 'price'];
+
+    protected $casts = [
+        'price' => 'decimal:2',
     ];
 
-    protected function casts(): array
+    public function getFormattedPriceAttribute(): string
     {
-        return [
-            'duration_minutes' => 'integer',
-            'price_chf'        => 'decimal:2',
-            'is_active'        => 'boolean',
-        ];
-    }
-
-    public function bookings(): HasMany
-    {
-        return $this->hasMany(Booking::class);
+        return 'CHF ' . number_format((float) $this->price, 0, '.', "'");
     }
 }
